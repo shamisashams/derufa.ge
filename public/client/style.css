@@ -2863,3 +2863,11 @@ img {
     height: 270px;
   }
 }
+
+.footer .social_media svg {
+  fill: #4d4d4d;
+}
+
+.dark_mode .footer .social_media svg {
+  fill: #fff;
+}
