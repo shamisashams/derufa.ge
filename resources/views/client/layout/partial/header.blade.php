@@ -60,4 +60,8 @@
         </div>
         <div class="burger_menu"></div>
     </div>
+    <button class="dark_light_mode_btn">
+        <img src="/client/img/icons/header/darkmode.svg" alt="" class="dark_light_img active">
+        <img src="/client/img/icons/header/lightmode.svg" alt=""  class="dark_light_img ">
+    </button>
 </header>
