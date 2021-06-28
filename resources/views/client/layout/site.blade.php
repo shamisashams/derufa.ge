@@ -6,7 +6,7 @@
             type="text/css"
             href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"
     />
-    <link rel="stylesheet" href="{{ asset('../client/style.css?v=2') }}" />
+    <link rel="stylesheet" href="{{ asset('../client/style.css?v=3') }}" />
     @yield('subhead')
 @endsection
 
