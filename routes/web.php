@@ -13,6 +13,7 @@ use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\CertificateController;
 use App\Http\Controllers\Admin\CityController;
 use App\Http\Controllers\Admin\FeatureController;
+use App\Http\Controllers\Admin\HnhController;
 use App\Http\Controllers\Admin\LanguageController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\ProjectController;
@@ -50,6 +51,9 @@ Route::prefix('{locale?}')
                 // Feature
                 Route::resource('feature', FeatureController::class);
                 Route::get('feature/{feature}/destroy', [FeatureController::class, 'destroy'])->name('feature.destroy');
+
+                Route::resource('hnh', HnhController::class);
+                Route::get('hnh/{hnh}/destroy', [HnhController::class, 'destroy'])->name('feature.destroy');
 
                 // Answer
                 Route::resource('answer', AnswerController::class);

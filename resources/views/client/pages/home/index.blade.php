@@ -40,7 +40,7 @@
             <div class="wrapper grid">
                 @foreach($categories as $category)
                     <div class="item_img">
-                        <img src="{{url($category->files? $category->files[0]->path.'/'.$category->files[0]->title : '')}}"
+                        <img src="{{url(isset($category->files[0])? $category->files[0]->path.'/'.$category->files[0]->title : '')}}"
                              alt=""/>
                         <div class="the_frame"></div>
                         <div class="box_shadow"></div>

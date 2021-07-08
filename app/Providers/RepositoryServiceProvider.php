@@ -21,6 +21,7 @@ use App\Repositories\Eloquent\CategoryRepository;
 use App\Repositories\Eloquent\CertificateRepository;
 use App\Repositories\Eloquent\CityRepository;
 use App\Repositories\Eloquent\FeatureRepository;
+use App\Repositories\Eloquent\HnhRepository;
 use App\Repositories\Eloquent\LanguageRepository;
 use App\Repositories\Eloquent\ProductRepository;
 use App\Repositories\Eloquent\ProjectRepository;
@@ -28,6 +29,7 @@ use App\Repositories\Eloquent\SettingRepository;
 use App\Repositories\Eloquent\SliderRepository;
 use App\Repositories\Eloquent\TranslationRepository;
 use App\Repositories\FeatureRepositoryInterface;
+use App\Repositories\HnhRepositoryInterface;
 use App\Repositories\LanguageRepositoryInterface;
 use App\Repositories\ProductRepositoryInterface;
 use App\Repositories\ProjectRepositoryInterface;
@@ -72,5 +74,6 @@ class RepositoryServiceProvider extends ServiceProvider
         $this->app->bind(SliderRepositoryInterface::class,SliderRepository::class);
         $this->app->bind(SettingRepositoryInterface::class,SettingRepository::class);
         $this->app->bind(CertificateRepositoryInterface::class,CertificateRepository::class);
+        $this->app->bind(HnhRepositoryInterface::class,HnhRepository::class);
     }
 }
