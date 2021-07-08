@@ -15,6 +15,9 @@ const lessOptions = document.querySelectorAll(".hide_extra_options");
 const extraOnes = document.querySelectorAll(".extra_cat_options");
 const darkLightMode = document.querySelector(".dark_light_mode_btn");
 const dLImg = document.querySelectorAll(".dark_light_img");
+const openHnh = document.querySelectorAll(".open_hnh_popup");
+const HnhPopup = document.getElementById("hnh_popup");
+const closeHnh = document.getElementById("close_hnh_popup");
 
 const darkMode = getCookie('dark-mode');
 if (darkMode) {
@@ -125,6 +128,15 @@ dLImg.forEach((el) => {
     });
 });
 
+// H&H popup
+openHnh.forEach((el) => {
+    el.addEventListener("click", () => {
+        HnhPopup.classList.add("open");
+    });
+});
+closeHnh.addEventListener("click", () => {
+    HnhPopup.classList.remove("open");
+});
 
 function setCookie(name, value, days) {
     let expires = "";

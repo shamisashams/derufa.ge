@@ -107,5 +107,8 @@ Route::prefix('{locale?}')
 
         Route::get('video', [\App\Http\Controllers\Client\CertificateController::class, 'video'])->name('client.video.index');
 
+        Route::get('hnh', [\App\Http\Controllers\Client\HnhController::class, 'index'])->name('client.hnh.index');
+
+
     });
 
