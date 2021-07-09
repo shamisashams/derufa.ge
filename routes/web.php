@@ -53,7 +53,7 @@ Route::prefix('{locale?}')
                 Route::get('feature/{feature}/destroy', [FeatureController::class, 'destroy'])->name('feature.destroy');
 
                 Route::resource('hnh', HnhController::class);
-                Route::get('hnh/{hnh}/destroy', [HnhController::class, 'destroy'])->name('feature.destroy');
+                Route::get('hnh/{hnh}/destroy', [HnhController::class, 'destroy'])->name('hnh.destroy');
 
                 // Answer
                 Route::resource('answer', AnswerController::class);
