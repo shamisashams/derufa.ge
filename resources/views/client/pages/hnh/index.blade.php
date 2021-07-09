@@ -85,7 +85,7 @@
                             {{$hnh->language(app()->getLocale())? $hnh->language(app()->getLocale())->title: $hnh->language()->title}}
                         </div>
                         <p>{{$hnh->language(app()->getLocale())? $hnh->language(app()->getLocale())->description: $hnh->language()->description}}</p>
-                        <p>{{$hnh->price}}р.</p>
+                        <p>${{number_format($hnh->price/100)}}</p>
                         <button class="view">подробнее</button>
                     </div>
 
@@ -107,7 +107,7 @@
                             <div class="details">
                                 <div
                                     class="title">{{$hnh->language(app()->getLocale())? $hnh->language(app()->getLocale())->title: $hnh->language()->title}}</div>
-                                <p>{{$hnh->price}}р.</p>
+                                <p>${{number_format($hnh->price/100)}}</p>
                                 @foreach($hnh->features as $feature)
                                     <p> {{$feature->feature->language(app()->getLocale())? $feature->feature->language(app()->getLocale())->title: $feature->feature->language()->title}}</p>
                                     <select name="hnh" id="">

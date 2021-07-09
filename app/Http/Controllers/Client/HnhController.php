@@ -16,7 +16,7 @@ class HnhController extends Controller
     {
 
         return view('client.pages.hnh.index', [
-            'hnhs' => Hnh::orderBy('created_at', 'desc')->with('features')->paginate(6),
+            'hnhs' => Hnh::orderBy('created_at', 'desc')->where(['status' => 1])->with('features')->paginate(6),
         ]);
     }
 }
