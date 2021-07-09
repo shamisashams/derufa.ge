@@ -18,7 +18,7 @@ class CreateHnhFeaturesTable extends Migration
             $table->foreignId('feature_id')->constrained('features');
             $table->foreignId('hnh_id')->constrained('hnh');
             $table->index(['feature_id', 'hnh_id']);
-            $table->json('answers')->default(new \Illuminate\Database\Query\Expression('(JSON_ARRAY())'));
+            $table->json('answers');
             $table->timestamps();
             $table->softDeletes();
         });
