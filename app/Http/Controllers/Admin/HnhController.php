@@ -118,7 +118,7 @@ class HnhController extends Controller
             $hnh = $this->hnhRepository->saveFiles($hnh->id, $request);
         }
 
-        return redirect(locale_route('hnh.show', $hnh->id))->with('success', 'Product created.');
+        return redirect(locale_route('hnh.show', $hnh->id))->with('success', 'Hnh created.');
     }
 
     /**
@@ -129,9 +129,9 @@ class HnhController extends Controller
      *
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
-    public function show(string $locale, Product $product)
+    public function show(string $locale, Hnh $hnh)
     {
-        $hnh = Hnh::where('id', $product->id)->with(['features', 'features.answers', 'languages', 'category'])->first();
+        $hnh = Hnh::where('id', $hnh->id)->with(['features', 'features.answers', 'languages', 'category'])->first();
 
         return view('admin.pages.hnh.show', [
             'hnh' => $hnh,
@@ -146,9 +146,9 @@ class HnhController extends Controller
      *
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response
      */
-    public function edit(string $locale, Product $product)
+    public function edit(string $locale, Hnh $hnh)
     {
-        $product = Product::where('id', $product->id)
+        $hnh = Hnh::where('id', $hnh->id)
             ->with([
                 'features',
                 'features.answers',
@@ -158,12 +158,12 @@ class HnhController extends Controller
                 'category.features.answers'
             ])->first();
 
-        $url = locale_route('product.update', $product->id, false);
+        $url = locale_route('hnh.update', $hnh->id, false);
 
         $method = 'PUT';
 
-        return view('admin.pages.product.form', [
-            'product' => $product,
+        return view('admin.pages.hnh.form', [
+            'hnh' => $hnh,
             'url' => $url,
             'method' => $method,
             'languages' => $this->activeLanguages(),
@@ -179,7 +179,7 @@ class HnhController extends Controller
      *
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse|\Illuminate\Http\Response|\Illuminate\Routing\Redirector
      */
-    public function update(string $locale, int $id, ProductRequest $request)
+    public function update(string $locale, int $id, HnhRequest $request)
     {
         $data = [
             'meta_title' => $request['meta_title'],
@@ -195,14 +195,14 @@ class HnhController extends Controller
             'languages' => $this->activeLanguages(),
         ];
 
-        $product = $this->productRepository->update($id, $data);
+        $product = $this->hnhRepository->update($id, $data);
 
         // Save Files
         if ($request->hasFile('images')) {
-            $product = $this->productRepository->saveFiles($product->id, $request);
+            $product = $this->hnhRepository->saveFiles($product->id, $request);
         }
 
-        return redirect(locale_route('product.show', $product->id))->with('success', 'Product updated.');
+        return redirect(locale_route('hnh.show', $product->id))->with('success', 'Hnh updated.');
     }
 
     /**
@@ -214,9 +214,9 @@ class HnhController extends Controller
      */
     public function destroy(string $locale, int $id)
     {
-        if (!$this->productRepository->delete($id)) {
-            return redirect(locale_route('product.show', $id))->with('danger', 'Product not deleted.');
+        if (!$this->hnhRepository->delete($id)) {
+            return redirect(locale_route('hnh.show', $id))->with('danger', 'Hnh not deleted.');
         }
-        return redirect(locale_route('product.index'))->with('success', 'Product Deleted.');
+        return redirect(locale_route('hnh.index'))->with('success', 'Hnh Deleted.');
     }
 }

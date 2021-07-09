@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Client;
 
 use App\Http\Controllers\Controller;
+use App\Models\Category;
+use App\Models\Hnh;
 use Illuminate\Http\Request;
 
 class HnhController extends Controller
@@ -14,6 +16,7 @@ class HnhController extends Controller
     {
 
         return view('client.pages.hnh.index', [
+            'hnhs' => Hnh::orderBy('created_at', 'desc')->with('features')->paginate(6),
         ]);
     }
 }

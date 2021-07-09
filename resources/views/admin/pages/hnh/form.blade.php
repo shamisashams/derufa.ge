@@ -18,7 +18,7 @@
             <div id="basic-form" class="card card card-default scrollspy">
                 <div class="card-content">
                     <input name="old-images[]" id="old_images" hidden disabled value="{{$hnh->files}}">
-                    <h4 class="card-title">{{$hnh->category_id ? __('admin.product-update') : __('admin.product-create')}}</h4>
+                    <h4 class="card-title">{{$hnh->category_id ? __('admin.hnh-update') : __('admin.hnh-create')}}</h4>
                     {!! Form::model($hnh,['url' => $url, 'method' => $method,'files' => true]) !!}
                     <div class="row">
                         <div class="col s12 m6 8">
@@ -44,7 +44,7 @@
                                             @enderror
                                         </div>
                                         <div class="input-field ">
-                                            {!! Form::text('meta_description['.$key.']',$hnh->language($language->id) !== null ? $product->language($language->id)->meta_description:  '',['class' => 'validate '. $errors->has('meta_description.*') ? '' : 'valid']) !!}
+                                            {!! Form::text('meta_description['.$key.']',$hnh->language($language->id) !== null ? $hnh->language($language->id)->meta_description:  '',['class' => 'validate '. $errors->has('meta_description.*') ? '' : 'valid']) !!}
                                             {!! Form::label('meta_description['.$key.']',__('admin.meta_description')) !!}
                                             @error('meta_description.*')
                                             <small class="errorTxt4">
@@ -55,7 +55,7 @@
                                             @enderror
                                         </div>
                                         <div class="input-field ">
-                                            {!! Form::text('meta_keywords['.$key.']',$hnh->language($language->id) !== null ? $product->language($language->id)->meta_keywords:  '',['class' => 'validate '. $errors->has('meta_keyword.*') ? '' : 'valid']) !!}
+                                            {!! Form::text('meta_keywords['.$key.']',$hnh->language($language->id) !== null ? $hnh->language($language->id)->meta_keywords:  '',['class' => 'validate '. $errors->has('meta_keyword.*') ? '' : 'valid']) !!}
                                             {!! Form::label('meta_keywords['.$key.']',__('admin.meta_keyword')) !!}
                                             @error('meta_keywords.*')
                                             <small class="errorTxt4">
@@ -66,7 +66,7 @@
                                             @enderror
                                         </div>
                                         <div class="input-field ">
-                                            {!! Form::text('title['.$key.']',$hnh->language($language->id) !== null ? $product->language($language->id)->title:  '',['class' => 'validate '. $errors->has('title.*') ? '' : 'valid']) !!}
+                                            {!! Form::text('title['.$key.']',$hnh->language($language->id) !== null ? $hnh->language($language->id)->title:  '',['class' => 'validate '. $errors->has('title.*') ? '' : 'valid']) !!}
                                             {!! Form::label('title['.$key.']',__('admin.title')) !!}
                                             @error('title.*')
                                             <small class="errorTxt4">
@@ -215,7 +215,7 @@
                                                             @foreach($feature->answers as $answer)
                                                                 <option
                                                                     value="{{$answer->id}}"
-                                                                    {{$product->hasFeatureAnswers($answer->id) ? 'selected' : ''}}
+                                                                    {{$hnh->hasFeatureAnswers($answer->id) ? 'selected' : ''}}
                                                                 >
                                                                     {{$answer->language(app()->getLocale()) ? substr($answer->language(app()->getLocale())->title,0,25) : substr($answer->language()->title,0,25)}}
                                                                 </option>

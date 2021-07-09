@@ -11,7 +11,9 @@ namespace App\Repositories\Eloquent;
 
 
 use App\Models\Hnh;
+use App\Models\HnhLanguage;
 use App\Models\Product;
+use App\Models\ProductLanguage;
 use App\Repositories\Eloquent\Base\BaseRepository;
 use App\Repositories\HnhRepositoryInterface;
 use App\Repositories\ProductRepositoryInterface;
@@ -113,6 +115,7 @@ class HnhRepository extends BaseRepository implements HnhRepositoryInterface
 
             foreach ($data['languages'] as $language) {
                 if (null !== $this->model->language($language['id'])) {
+//                    var_dump($this->model->language($language['id']));
                     $this->model->language($language['id'])->update([
                         'meta_title' => $data['meta_title'][$language['id']],
                         'meta_description' => $data['meta_description'][$language['id']],
@@ -120,9 +123,19 @@ class HnhRepository extends BaseRepository implements HnhRepositoryInterface
                         'title' => $data['title'][$language['id']],
                         'description' => $data['description'][$language['id']],
                     ]);
+                } else {
+                    HnhLanguage::create([
+                        'hnh_id' => $this->model->id,
+                        'language_id' => $language['id'],
+                        'meta_title' => $data['meta_title'][$language['id']],
+                        'meta_description' => $data['meta_description'][$language['id']],
+                        'meta_keywords' => $data['meta_keywords'][$language['id']],
+                        'title' => $data['title'][$language['id']],
+                        'description' => $data['description'][$language['id']],
+
+                    ]);
                 }
             }
-
             // deletes features
             $this->model->features()->forceDelete();
 

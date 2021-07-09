@@ -17,7 +17,7 @@ const darkLightMode = document.querySelector(".dark_light_mode_btn");
 const dLImg = document.querySelectorAll(".dark_light_img");
 const openHnh = document.querySelectorAll(".open_hnh_popup");
 const HnhPopup = document.getElementById("hnh_popup");
-const closeHnh = document.getElementById("close_hnh_popup");
+const closeHnh = document.querySelectorAll("#close_hnh_popup");
 
 const darkMode = getCookie('dark-mode');
 if (darkMode) {
@@ -118,7 +118,7 @@ lessOptions.forEach((el, i) => {
 darkLightMode.addEventListener("click", () => {
     document.body.classList.toggle("dark_mode");
     let darkMode = getCookie('dark-mode')
-    setCookie('dark-mode',!darkMode,7);
+    setCookie('dark-mode', !darkMode, 7);
 });
 dLImg.forEach((el) => {
     el.addEventListener("click", (event) => {
@@ -131,12 +131,18 @@ dLImg.forEach((el) => {
 // H&H popup
 openHnh.forEach((el) => {
     el.addEventListener("click", () => {
-        HnhPopup.classList.add("open");
+        let popup = document.querySelector(`.hnh_popup-${el.id}`);
+        popup.classList.add("open");
     });
 });
-closeHnh.addEventListener("click", () => {
-    HnhPopup.classList.remove("open");
-});
+closeHnh.forEach(item => {
+    item.addEventListener("click", () => {
+        if (item.getAttribute('data-id')) {
+            let popup = document.querySelector(`.hnh_popup-${item.getAttribute('data-id')}`);
+            popup.classList.remove("open");
+        }
+    });
+})
 
 function setCookie(name, value, days) {
     let expires = "";

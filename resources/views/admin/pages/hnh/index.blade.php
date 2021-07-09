@@ -60,8 +60,8 @@
                                             <tr>
                                                 <td>{{$hnh->id}}</td>
                                                 <td>
-                                                    @if($product->category)
-                                                        {{$product->category->language(app()->getLocale())? substr($product->category->language(app()->getLocale())->title,0,15): substr($product->category->language()->title,0,15)}}
+                                                    @if($hnh->category)
+                                                        {{$hnh->category->language(app()->getLocale())? substr($hnh->category->language(app()->getLocale())->title,0,15): substr($hnh->category->language()->title,0,15)}}
                                                     @endif
                                                 </td>
                                                 <td>
