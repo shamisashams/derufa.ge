@@ -23,7 +23,7 @@
                     @lang('admin.edit')
                 </a>
                 <a class="btn-small -settings waves-effect -light -btn right ml-3"
-                   href="{{locale_route('product.destroy',$hnh->id)}}"
+                   href="{{locale_route('hnh.destroy',$hnh->id)}}"
                    onclick="return confirm('Are you sure?')">
                     <span class="hide-on-small-onl">
                         @lang('admin.delete')
