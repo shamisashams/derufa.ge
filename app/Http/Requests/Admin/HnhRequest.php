@@ -51,6 +51,7 @@ class HnhRequest extends FormRequest
             $data ['meta_keywords.' . $defaultLanguage->id] = 'required|string|max:1024';
             $data ['title.' . $defaultLanguage->id] = 'required|string|max:255';
             $data ['description.' . $defaultLanguage->id] = 'nullable|string|max:255';
+            $data ['content.' . $defaultLanguage->id] = 'nullable|string|max:255';
             $data['category_id'] = 'required|numeric|exists:categories,id';
         }
         return $data;

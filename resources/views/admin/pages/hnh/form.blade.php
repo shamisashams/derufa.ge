@@ -93,6 +93,18 @@
                                             </small>
                                             @enderror
                                         </div>
+                                        <div class="input-field">
+                                            <label for="content">{{trans('admin.content')}}</label>
+                                            <textarea id="content" class="ckeditor form-control"
+                                                      name="content[{{$key}}]">  {!! $hnh->language($language->id) !== null ? $hnh->language($language->id)->content:  '' !!}</textarea>
+                                            @error('content.*')
+                                            <small class="errorTxt4">
+                                                <div class="error">
+                                                    {{$message}}
+                                                </div>
+                                            </small>
+                                            @enderror
+                                        </div>
                                     </div>
                                 @endforeach
                             </div>
@@ -261,5 +273,7 @@
 
 {{-- page script --}}
 @section('page-script')
+    <script src="{{asset('../ckeditor/ckeditor.js')}}"></script>
+
     <script src="{{asset('js/scripts/form-select2.js')}}"></script>
 @endsection

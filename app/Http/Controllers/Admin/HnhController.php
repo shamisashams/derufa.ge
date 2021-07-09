@@ -103,6 +103,7 @@ class HnhController extends Controller
             'meta_keywords' => $request['meta_keywords'],
             'title' => $request['title'],
             'description' => $request['description'],
+            'content' => $request['content'],
             'price' => $request['price'],
             'slug' => $request['slug'],
             'category_id' => $request['category_id'],
@@ -181,12 +182,14 @@ class HnhController extends Controller
      */
     public function update(string $locale, int $id, HnhRequest $request)
     {
+
         $data = [
             'meta_title' => $request['meta_title'],
             'meta_description' => $request['meta_description'],
             'meta_keywords' => $request['meta_keywords'],
             'title' => $request['title'],
             'description' => $request['description'],
+            'content' => $request['content'],
             'price' => $request['price'],
             'slug' => $request['slug'],
             'category_id' => $request['category_id'],

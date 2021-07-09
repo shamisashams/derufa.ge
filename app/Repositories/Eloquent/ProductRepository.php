@@ -11,6 +11,7 @@ namespace App\Repositories\Eloquent;
 
 
 use App\Models\Product;
+use App\Models\ProductLanguage;
 use App\Repositories\Eloquent\Base\BaseRepository;
 use App\Repositories\ProductRepositoryInterface;
 use Illuminate\Support\Facades\DB;
@@ -117,6 +118,17 @@ class ProductRepository extends BaseRepository implements ProductRepositoryInter
                         'meta_keywords' => $data['meta_keywords'][$language['id']],
                         'title' => $data['title'][$language['id']],
                         'description' => $data['description'][$language['id']],
+                    ]);
+                } else {
+                    ProductLanguage::create([
+                        'product_id' => $this->model->id,
+                        'language_id' => $language['id'],
+                        'meta_title' => $data['meta_title'][$language['id']],
+                        'meta_description' => $data['meta_description'][$language['id']],
+                        'meta_keywords' => $data['meta_keywords'][$language['id']],
+                        'title' => $data['title'][$language['id']],
+                        'description' => $data['description'][$language['id']],
+
                     ]);
                 }
             }

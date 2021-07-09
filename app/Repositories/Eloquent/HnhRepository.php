@@ -67,6 +67,7 @@ class HnhRepository extends BaseRepository implements HnhRepositoryInterface
                     'meta_keywords' => $attributes['meta_keywords'][$language['id']],
                     'title' => $attributes['title'][$language['id']],
                     'description' => $attributes['description'][$language['id']],
+                    'content' => $attributes['content'][$language['id']],
                 ];
             }
 
@@ -113,15 +114,16 @@ class HnhRepository extends BaseRepository implements HnhRepositoryInterface
 
             $this->model = parent::update($id, $attributes);
 
+
             foreach ($data['languages'] as $language) {
                 if (null !== $this->model->language($language['id'])) {
-//                    var_dump($this->model->language($language['id']));
                     $this->model->language($language['id'])->update([
                         'meta_title' => $data['meta_title'][$language['id']],
                         'meta_description' => $data['meta_description'][$language['id']],
                         'meta_keywords' => $data['meta_keywords'][$language['id']],
                         'title' => $data['title'][$language['id']],
                         'description' => $data['description'][$language['id']],
+                        'content' => $data['content'][$language['id']],
                     ]);
                 } else {
                     HnhLanguage::create([
@@ -132,7 +134,7 @@ class HnhRepository extends BaseRepository implements HnhRepositoryInterface
                         'meta_keywords' => $data['meta_keywords'][$language['id']],
                         'title' => $data['title'][$language['id']],
                         'description' => $data['description'][$language['id']],
-
+                        'content' => $data['content'][$language['id']],
                     ]);
                 }
             }
