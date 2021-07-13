@@ -17,68 +17,52 @@
     <section class="hnh_section hnh_wrapper ">
         <div class="section flex center">
             <div class="text">
-                <p>Представляем Вам серию дизайнерских красок H&H (Historie & Harmonie) - это новый эксклюзивный
-                    материал, который отметят и искушенный дизайнер,и профессиональный строитель.</p>
-                <p>Краски имеют уникальные свойства:</p>
-                <p>- особый <strong>светорассеивающий эффект</strong> (благодаря своеобразному компоненту Diatom,
-                    структура которого подобна кристаллу, окрашенные поверхности обретают потрясающую глубину и
-                    насыщенность цвета)
+                <p>@lang('client.hnh_section_1')</p>
+                <p>@lang('client.hnh_section_2')
                 </p>
-                <p>- волшебную <strong>метамерию</strong> , что дает широкое поле для экспериментов со светом
+                <p>@lang('client.hnh_section_3')
                 </p>
-                <p>- краски H&H - <strong>живые краски</strong> (в основе концепции лежит неоднородность всего
-                    природного и сочетание глянцевости и матовости)</p>
+                <p>@lang('client.hnh_section_5')</p>
             </div>
             <img src="/client/img/hnh/1.webp" alt="">
         </div>
         <div class="section">
-            <div class="head">Преимущества Красок H&H</div>
+            <div class="head">@lang('client.hnh_main_title')</div>
             <div class="grid">
                 <div class="grid_item">
                     <span>1</span>
-                    <div class="title">Эксплуатационные свойства</div>
+                    <div class="title">@lang('client.hnh_1_title')</div>
                     <p>@lang('client.hhn_1_description')</p>
                 </div>
                 <div class="grid_item">
                     <span>2</span>
-                    <div class="title">Экологичность</div>
-                    <p>Единственная краска в России получившая экологический сертификат на соответствие требованиям
-                        BREEAM. Это позволяет включать ее в дизайнерские проекты "Зеленый Дом" и использовать в детских
-                        и медицинских учреждениях</p>
+                    <div class="title">@lang('client.hnh_2_title')</div>
+                    <p>@lang('client.hnh_2_description')</p>
                 </div>
                 <div class="grid_item">
                     <span>3</span>
-                    <div class="title">Технологичность</div>
-                    <p>Собственная уникальная колеровочная система и производственная база с лабораторией позволяет
-                        воплощать в своей продукции самые передовые технологические и дизайнерские решения. Программа
-                        ColorSystem позволяет задавать нужную метамерию и делать подбор цвета с высочайшей
-                        точностью.</p>
+                    <div class="title">@lang('client.hnh_3_title')</div>
+                    <p>@lang('client.hnh_3_description')</p>
                 </div>
                 <div class="grid_item">
                     <span>4</span>
-                    <div class="title">Новая цветовая коммуникация</div>
-                    <p>Получить реальный образец краски в нужном оттенке теперь можно без проблем с нашей компанией. Мы
-                        внедрили новую уникальную технологию по подбору цвета с ваших цифровых носителей (фотографии,
-                        картинки), она позволяет воспроизвести с максимальной точностью ваш любимый цвет.</p>
+                    <div class="title">@lang('client.hnh_4_title')</div>
+                    <p>@lang('client.hnh_4_description')</p>
                 </div>
                 <div class="grid_item">
                     <span>5</span>
-                    <div class="title">Профессиональное сопровождение</div>
-                    <p>На точке продаж серии H&H вы получите профессиональную консультацию по созданию правильного
-                        гармоничного цветового решения вашего пространства.</p>
+                    <div class="title">@lang('client.hnh_5_title')</div>
+                    <p>@lang('client.hnh_5_description')</p>
                 </div>
                 <div class="grid_item">
                     <span>6</span>
-                    <div class="title">Дизайнерская цветовая коллекция</div>
-                    <p>Собственная уникальная колеровочная система и производственная база с лабораторией позволяет
-                        воплощать в своей продукции самые передовые технологические и дизайнерские решения. Программа
-                        ColorSystem позволяет задавать нужную метамерию и делать подбор цвета с высочайшей
-                        точностью.</p>
+                    <div class="title">@lang('client.hnh_6_title')</div>
+                    <p>@lang('client.hnh_6_description')</p>
                 </div>
             </div>
         </div>
         <div>
-            <div class="head">Материалы Серии H&H</div>
+            <div class="head">@lang('client.h&h_series_materials')</div>
             <div class="grid grid_seri">
                 @foreach($hnhs as $hnh)
                     <div id="{{$hnh->id}}" class="grid_item open_hnh_popup">
@@ -92,7 +76,7 @@
                         </div>
                         <p>{{$hnh->language(app()->getLocale())? $hnh->language(app()->getLocale())->description: $hnh->language()->description}}</p>
                         <p>${{number_format($hnh->price/100)}}</p>
-                        <button class="view">подробнее</button>
+                        <button class="view">@lang('client.more_details')</button>
                     </div>
 
                     <div id="hnh_popup" class="hnh_popup-{{$hnh->id}}">
