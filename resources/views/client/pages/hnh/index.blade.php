@@ -21,7 +21,7 @@
                 <p>- краски H&H - <strong>живые краски</strong> (в основе концепции лежит неоднородность всего
                     природного и сочетание глянцевости и матовости)</p>
             </div>
-            <img src="img/hnh/1.webp" alt="">
+            <img src="/client/img/hnh/1.webp" alt="">
         </div>
         <div class="section">
             <div class="head">Преимущества Красок H&H</div>
