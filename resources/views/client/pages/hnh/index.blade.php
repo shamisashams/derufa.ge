@@ -6,6 +6,14 @@
 @endsection
 
 @section('wrapper')
+    <section class="every_showcase hnh">
+        <div class="overlay">
+            <div class="wrapper content">
+                <div class="path">@lang('client.home') - H & H</div>
+                <div class="title">H & H</div>
+            </div>
+        </div>
+    </section>
     <section class="hnh_section hnh_wrapper ">
         <div class="section flex center">
             <div class="text">
