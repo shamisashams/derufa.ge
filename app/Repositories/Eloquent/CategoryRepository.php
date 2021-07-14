@@ -101,6 +101,12 @@ class CategoryRepository extends BaseRepository implements CategoryRepositoryInt
                         'title' => $data['title'][$language['id']],
                         'description' => $data['description'][$language['id']]
                     ]);
+                } else {
+                    $this->model->language($language['id'])->create([
+                        'language_id' => $language['id'],
+                        'title' => $data['title'][$language['id']],
+                        'description' => $data['description'][$language['id']]
+                    ]);
                 }
             }
 
