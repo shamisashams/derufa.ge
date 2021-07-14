@@ -2254,7 +2254,7 @@ img {
     }
 }
 
-@media screen and (max-width: 1100px) {
+@media screen and (max-width: 1130px) {
     .header .nav_link {
         font-size: 14px;
         padding: 30px 10px;
