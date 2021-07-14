@@ -6,6 +6,7 @@
             type="text/css"
             href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"
     />
+    <link rel="shortcut icon" href="{{ asset('favicon.png') }}">
     <link rel="stylesheet" href="{{ asset('../client/style.css?v=51') }}" />
     @if(app()->getLocale() === 3) 
     // Language Russia
