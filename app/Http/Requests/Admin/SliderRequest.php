@@ -42,8 +42,8 @@ class SliderRequest extends FormRequest
         ];
 
         if ($this->method !== 'GET') {
-            $data ['title.' . $defaultLanguage->id] = 'required|string|max:255';
-            $data ['description.' . $defaultLanguage->id] = 'nullable|string|max:255';
+            $data ['title.' . $defaultLanguage->id] = 'required|string';
+            $data ['description.' . $defaultLanguage->id] = 'nullable|string';
         }
         return $data;
     }

@@ -46,12 +46,12 @@
                                 </a>
                             </td>
                         </tr>
-                        <tr>
-                            <td>@lang('admin.slug'):</td>
-                            <td>
-                                {{$hnh->slug}}
-                            </td>
-                        </tr>
+{{--                        <tr>--}}
+{{--                            <td>@lang('admin.slug'):</td>--}}
+{{--                            <td>--}}
+{{--                                {{$hnh->slug}}--}}
+{{--                            </td>--}}
+{{--                        </tr>--}}
                         <tr>
                             <td>@lang('admin.price'):</td>
                             <td>

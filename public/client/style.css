@@ -185,13 +185,13 @@ img {
 .header .logo_img {
   width: 100px;
   height: 50px;
-  background: url(img/logo/logo-dark.png) no-repeat;
+  background: url(/client/img/logo-dark.png) no-repeat;
   background-position: center;
   background-size: contain;
 }
 
 .dark_mode .header .logo_img {
-  background: url(img/logo/logo-light.png) no-repeat;
+  background: url(/client/img/logo-light.png) no-repeat;
   background-position: center;
   background-size: contain;
 }
@@ -739,7 +739,7 @@ img {
 /******************* every showcase ******************/
 
 .every_showcase {
-  height: 355px;
+  height: 835px;
   width: 100%;
   margin-top: 120px;
 }
@@ -812,7 +812,7 @@ img {
   background-size: cover;
 }
 .every_showcase.hnh {
-  background: url(img/showcases/12.webp) no-repeat;
+  background: url(/client/img/showcases/12.webp) no-repeat;
   background-position: center;
   background-size: cover;
 }

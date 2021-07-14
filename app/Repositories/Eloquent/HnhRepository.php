@@ -51,7 +51,6 @@ class HnhRepository extends BaseRepository implements HnhRepositoryInterface
             $data = [
                 'category_id' => $attributes['category_id'],
                 'status' => $attributes['status'],
-                'slug' => $attributes['slug'],
                 'price' => $attributes['price']
             ];
 
@@ -108,7 +107,6 @@ class HnhRepository extends BaseRepository implements HnhRepositoryInterface
             $attributes = [
                 'category_id' => $data['category_id'],
                 'status' => $data['status'],
-                'slug' => $data['slug'],
                 'price' => $data['price']
             ];
 

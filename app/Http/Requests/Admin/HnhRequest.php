@@ -41,7 +41,6 @@ class HnhRequest extends FormRequest
         $defaultLanguage = Language::where('default', true)->firstOrFail();
 
         $data = [
-            'slug' => [$isRequired, 'alpha_dash', Rule::unique('products', 'slug')->ignore($this->product)],
             'price' => $isRequired . '|numeric'
         ];
 

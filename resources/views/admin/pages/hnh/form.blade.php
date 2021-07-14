@@ -119,17 +119,17 @@
                         </div>
                         <div class="col s12 m6 8">
                             <div class="row">
-                                <div class="input-field col s12">
-                                    {!! Form::text('slug',$hnh->slug,['class' => 'validate '. $errors->has('slug') ? '' : 'valid']) !!}
-                                    {!! Form::label('slug',__('admin.slug')) !!}
-                                    @error('slug')
-                                    <small class="errorTxt4">
-                                        <div class="error">
-                                            {{$message}}
-                                        </div>
-                                    </small>
-                                    @enderror
-                                </div>
+{{--                                <div class="input-field col s12">--}}
+{{--                                    {!! Form::text('slug',$hnh->slug,['class' => 'validate '. $errors->has('slug') ? '' : 'valid']) !!}--}}
+{{--                                    {!! Form::label('slug',__('admin.slug')) !!}--}}
+{{--                                    @error('slug')--}}
+{{--                                    <small class="errorTxt4">--}}
+{{--                                        <div class="error">--}}
+{{--                                            {{$message}}--}}
+{{--                                        </div>--}}
+{{--                                    </small>--}}
+{{--                                    @enderror--}}
+{{--                                </div>--}}
                                 <div class="input-field col s12">
                                     {!! Form::number('price',$hnh->price,['class' => 'validate '. $errors->has('price') ? '' : 'valid']) !!}
                                     {!! Form::label('price',__('admin.price')) !!}

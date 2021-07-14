@@ -44,7 +44,7 @@ class ProjectRequest extends FormRequest
         ];
 
         if ($this->method !== 'GET') {
-            $data ['title.' . $defaultLanguage->id] = 'required|string|max:255';
+            $data ['title.' . $defaultLanguage->id] = 'required|string';
             $data['city_id'] = 'required|numeric|exists:cities,id';
 
         }

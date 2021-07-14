@@ -46,11 +46,11 @@ class ProductRequest extends FormRequest
         ];
 
         if ($this->method !== 'GET') {
-            $data ['meta_title.' . $defaultLanguage->id] = 'required|string|max:255';
-            $data ['meta_description.' . $defaultLanguage->id] = 'required|string|max:255';
-            $data ['meta_keywords.' . $defaultLanguage->id] = 'required|string|max:1024';
-            $data ['title.' . $defaultLanguage->id] = 'required|string|max:255';
-            $data ['description.' . $defaultLanguage->id] = 'nullable|string|max:255';
+            $data ['meta_title.' . $defaultLanguage->id] = 'required|string';
+            $data ['meta_description.' . $defaultLanguage->id] = 'required|string';
+            $data ['meta_keywords.' . $defaultLanguage->id] = 'required|string';
+            $data ['title.' . $defaultLanguage->id] = 'required|string';
+            $data ['description.' . $defaultLanguage->id] = 'nullable|string';
             $data['category_id'] = 'required|numeric|exists:categories,id';
         }
         return $data;
