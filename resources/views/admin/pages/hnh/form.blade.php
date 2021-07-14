@@ -76,15 +76,10 @@
                                             </small>
                                             @enderror
                                         </div>
-                                        <div class="input-field ">
-                                            <textarea
-                                                name="description[{{$key}}]"
-
-                                                class="materialize-textarea validate {{ $errors->has('description.*') ? '' : 'valid'}}">
-                                                                                                {!! $hnh->language($language->id) !== null ? $hnh->language($language->id)->description:  '' !!}
-
-                                            </textarea>
-                                            <label for="description['{{$key}}']">{{__('admin.description')}}</label>
+                                        <div class="input-field">
+                                            <label for="description">{{trans('admin.description')}}</label>
+                                            <textarea id="description" class="ckeditor form-control"
+                                                      name="description[{{$key}}]">  {!! $hnh->language($language->id) !== null ? $hnh->language($language->id)->description:  '' !!}</textarea>
                                             @error('description.*')
                                             <small class="errorTxt4">
                                                 <div class="error">

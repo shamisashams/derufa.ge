@@ -76,15 +76,10 @@
                                             </small>
                                             @enderror
                                         </div>
-                                        <div class="input-field ">
-                                            <textarea
-                                                    name="description[{{$key}}]"
-
-                                                    class="materialize-textarea validate {{ $errors->has('description.*') ? '' : 'valid'}}">
-                                                                                                {!! $product->language($language->id) !== null ? $product->language($language->id)->description:  '' !!}
-
-                                            </textarea>
-                                            <label for="description['{{$key}}']">{{__('admin.description')}}</label>
+                                        <div class="input-field">
+                                            <label for="description">{{trans('admin.description')}}</label>
+                                            <textarea id="description" class="ckeditor form-control"
+                                                      name="description[{{$key}}]">  {!! $product->language($language->id) !== null ? $product->language($language->id)->description:  '' !!}</textarea>
                                             @error('description.*')
                                             <small class="errorTxt4">
                                                 <div class="error">
@@ -262,4 +257,6 @@
 {{-- page script --}}
 @section('page-script')
     <script src="{{asset('js/scripts/form-select2.js')}}"></script>
+    <script src="{{asset('../ckeditor/ckeditor.js')}}"></script>
+
 @endsection
