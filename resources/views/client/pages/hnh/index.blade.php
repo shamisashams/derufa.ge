@@ -7,14 +7,25 @@
 
 @section('wrapper')
     <section class="every_showcase hnh">
-        <div class="overlay">
-            <div class="wrapper content">
-                <div class="path">@lang('client.home') - H & H</div>
-                <div class="title">H & H</div>
+        <!-- <img src="/client/img/showcases/12.webp" alt=""> -->
+        <div class="hnh_bg">
+            <div class="overlay"> 
+                <!-- <div class="wrapper content">
+                    <div class="path">@lang('client.home') - H & H</div>
+                    <div class="title">H & H</div>
+                </div> -->
             </div>
         </div>
+        <a href="#hnh_section">
+            <div class="scroll_down">
+                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" version="1.1" width="40" height="40" x="0" y="0" viewBox="0 0 330 330" style="enable-background:new 0 0 512 512" xml:space="preserve" class=""><g>
+                <path xmlns="http://www.w3.org/2000/svg" id="XMLID_102_" d="M325.607,79.393c-5.857-5.857-15.355-5.858-21.213,0.001l-139.39,139.393L25.607,79.393  c-5.857-5.857-15.355-5.858-21.213,0.001c-5.858,5.858-5.858,15.355,0,21.213l150.004,150c2.813,2.813,6.628,4.393,10.606,4.393  s7.794-1.581,10.606-4.394l149.996-150C331.465,94.749,331.465,85.251,325.607,79.393z" data-original="#000000" style="" class=""/>
+                <g xmlns="http://www.w3.org/2000/svg">
+                </g></svg>
+            </div>
+        </a>
     </section>
-    <section class="hnh_section hnh_wrapper ">
+    <section class="hnh_section hnh_wrapper " id='hnh_section'>
         <div class="section flex center">
             <div class="text">
                 <p>@lang('client.hnh_section_1')</p>

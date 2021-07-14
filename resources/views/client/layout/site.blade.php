@@ -6,7 +6,17 @@
             type="text/css"
             href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"
     />
-    <link rel="stylesheet" href="{{ asset('../client/style.css?v=5') }}" />
+    <link rel="stylesheet" href="{{ asset('../client/style.css?v=51') }}" />
+    @if(app()->getLocale() === 3) 
+    // Language Russia
+    <link rel="stylesheet" href="{{ asset('../client/font_ru.css?v=51') }}" />
+    @elseif(app()->getLocale() === 2)
+    // Language English
+    <link rel="stylesheet" href="{{ asset('../client/font_en.css?v=51') }}" />
+    @else 
+    // Language Georgia
+    <link rel="stylesheet" href="{{ asset('../client/font_ge.css?v=51') }}" />
+    @endif
     @yield('subhead')
 @endsection
 
