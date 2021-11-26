@@ -44,7 +44,7 @@
         </div>
         <div class="description">
             <div class="title">@lang('client.description')</div>
-            <p class="p">{{$product->language(app()->getLocale())? $product->language(app()->getLocale())->description: $product->language()->description}}</p>
+            <p class="p">{!! $product->language(app()->getLocale())? $product->language(app()->getLocale())->description: $product->language()->description !!}</p>
         </div>
     </section>
 @endsection
