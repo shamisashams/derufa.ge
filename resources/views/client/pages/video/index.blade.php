@@ -32,21 +32,15 @@
         </div>
         <div class="flex">
             <div class="video">
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/7EzltDDfHHc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/B7ar-Nqh0mA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
             <div class="text">@lang('client.video_3') </div>
         </div>
         <div class="flex">
             <div class="video">
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/B7ar-Nqh0mA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            </div>
-            <div class="text">@lang('client.video_4') </div>
-        </div>
-        <div class="flex">
-            <div class="video">
                 <iframe width="560" height="315" src="https://www.youtube.com/embed/5s6g_qUttnI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
-            <div class="text">@lang('client.video_5') </div>
+            <div class="text">@lang('client.video_4') </div>
         </div>
     </section>
 @endsection
