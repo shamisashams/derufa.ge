@@ -26,7 +26,8 @@
             </div>
             <div class="info">
                 <div class="title">{{$product->language(app()->getLocale())? $product->language(app()->getLocale())->title: $product->language()->title}}</div>
-                <div class="title">{{number_format($product->price/100)}}</div>
+{{--                <div class="title">{{number_format($product->price/100)}}</div>--}}
+                <div class="title">{{$product->price}}</div>
                 @foreach($product->features as $feature)
                     <p class="p"><b>
                             {{$feature->feature->language(app()->getLocale())? $feature->feature->language(app()->getLocale())->title: $feature->feature->language()->title}}
