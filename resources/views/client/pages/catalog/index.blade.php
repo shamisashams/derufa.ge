@@ -61,7 +61,8 @@
                             <div>
                                 {{$product->language(app()->getLocale())? $product->language(app()->getLocale())->title: $product->language()->title}}
                             </div>
-                            <div>${{number_format($product->price/100)}}</div>
+{{--                            <div>${{number_format($product->price/100)}}</div>--}}
+                            <div>${{$product->price}}</div>
                         </div>
                     </a>
 

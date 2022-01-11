@@ -22,9 +22,9 @@
                class="nav_link {{Request::route()->getName()  === 'client.video.index'? 'on' : ''}}">@lang('client.videos')</a>
             <a href="{{locale_route('client.project.index')}}"
                class="nav_link {{Request::route()->getName()  === 'client.project.index'? 'on' : ''}}">@lang('client.projects')</a>
-            <a href="{{locale_route('portfolio.index')}}"
-               class="nav_link {{Request::route()->getName()  === 'portfolio.index'? 'on' : ''}}">
-                @lang('client.portfolios')
+            <a href="{{locale_route('principle.index')}}"
+               class="nav_link {{Request::route()->getName()  === 'principle.index'? 'on' : ''}}">
+                @lang('client.principle')
             </a>
             <div class="nav_link drop {{Request::route()->getName()  === 'about.index'? 'on' : ''}}">
                 <a href="{{locale_route('about.index')}}" class="cat">@lang('client.about_us')</a>
@@ -32,9 +32,9 @@
                     <a href="{{locale_route('timeline.index')}}" class="link">
                         @lang('client.timeline')
                     </a>
-                    <a href="{{locale_route('principle.index')}}" class="link">
-                        @lang('client.principle')
-                    </a>
+{{--                    <a href="{{locale_route('principle.index')}}" class="link">--}}
+{{--                        @lang('client.principle')--}}
+{{--                    </a>--}}
                     <a href="{{locale_route('client.certificate.index')}}" class="link">
                         @lang('client.certificates')
                     </a>
