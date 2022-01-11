@@ -20,8 +20,8 @@
                class="nav_link {{Request::route()->getName()  === 'client.hnh.index'? 'on' : ''}}">@lang('client.hnh')</a>
             <a href="{{locale_route('client.video.index')}}"
                class="nav_link {{Request::route()->getName()  === 'client.video.index'? 'on' : ''}}">@lang('client.videos')</a>
-            <a href="{{locale_route('client.project.index')}}"
-               class="nav_link {{Request::route()->getName()  === 'client.project.index'? 'on' : ''}}">@lang('client.projects')</a>
+            <!-- <a href="{{locale_route('client.project.index')}}"
+               class="nav_link {{Request::route()->getName()  === 'client.project.index'? 'on' : ''}}">@lang('client.projects')</a> -->
             <a href="{{locale_route('principle.index')}}"
                class="nav_link {{Request::route()->getName()  === 'principle.index'? 'on' : ''}}">
                 @lang('client.principle')
