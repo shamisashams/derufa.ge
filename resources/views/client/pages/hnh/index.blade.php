@@ -110,7 +110,7 @@
                                 <div
                                     class="title">{{$hnh->language(app()->getLocale())? $hnh->language(app()->getLocale())->title: $hnh->language()->title}}</div>
                                 <p>${{number_format($hnh->price/100)}}</p>
-                                @foreach($hnh->features as $feature)
+                                <!-- @foreach($hnh->features as $feature)
                                     <p> {{$feature->feature->language(app()->getLocale())? $feature->feature->language(app()->getLocale())->title: $feature->feature->language()->title}}</p>
                                     <select name="hnh" id="">
                                         @foreach($feature->answers()->get() as $key => $answer)
@@ -118,7 +118,19 @@
                                                 value="">{{$answer->language(app()->getLocale())? $answer->language(app()->getLocale())->title: $answer->language()->title}}</option>
                                         @endforeach
                                     </select>
-                                @endforeach
+                                @endforeach -->
+                                <table class="size_price_table">
+                                    <tr>
+                                        <td>ზომა </td>
+                                        <td><span>0.9</span> ლ </td>
+                                        <td><span>2.7</span> ლ </td>
+                                    </tr>
+                                    <tr>
+                                        <td>ფასი</td>
+                                        <td><span>21</span> ლარი</td>
+                                        <td><span>23</span> ლარი</td>
+                                    </tr>
+                                </table>
                                 <p>{!!$hnh->language(app()->getLocale())? $hnh->language(app()->getLocale())->content: $hnh->language()->content!!}</p>
                             </div>
                         </div>

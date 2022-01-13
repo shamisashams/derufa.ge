@@ -28,7 +28,19 @@
                 <div class="title">{{$product->language(app()->getLocale())? $product->language(app()->getLocale())->title: $product->language()->title}}</div>
 {{--                <div class="title">{{number_format($product->price/100)}}</div>--}}
                 <div class="title">{{$product->price}}</div>
-                @foreach($product->features as $feature)
+                <table class="size_price_table">
+                    <tr>
+                        <td>ზომა </td>
+                        <td><span>0.9</span> ლ </td>
+                        <td><span>2.7</span> ლ </td>
+                    </tr>
+                    <tr>
+                        <td>ფასი</td>
+                        <td><span>21</span> ლარი</td>
+                        <td><span>23</span> ლარი</td>
+                    </tr>
+                </table>
+                <!-- @foreach($product->features as $feature)
                     <p class="p"><b>
                             {{$feature->feature->language(app()->getLocale())? $feature->feature->language(app()->getLocale())->title: $feature->feature->language()->title}}
 
@@ -40,7 +52,7 @@
                         {{$answer->language(app()->getLocale())? $answer->language(app()->getLocale())->title: $answer->language()->title}}
                         @endforeach
                     </p>
-                @endforeach
+                @endforeach -->
             </div>
         </div>
         <div class="description">
