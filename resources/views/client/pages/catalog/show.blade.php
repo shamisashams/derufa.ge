@@ -29,16 +29,14 @@
 {{--                <div class="title">{{number_format($product->price/100)}}</div>--}}
                 <div class="title">{{$product->price}}</div>
                 <table class="size_price_table">
-                    <tr>
-                        <td>ზომა </td>
-                        <td><span>0.9</span> ლ </td>
-                        <td><span>2.7</span> ლ </td>
-                    </tr>
-                    <tr>
-                        <td>ფასი</td>
-                        <td><span>21</span> ლარი</td>
-                        <td><span>23</span> ლარი</td>
-                    </tr>
+                    @foreach($product->features as $feature)
+                        <tr>
+                            <td>{{$feature->feature->language(app()->getLocale())? $feature->feature->language(app()->getLocale())->title: $feature->feature->language()->title}}</td>
+                            @foreach($feature->answers()->get() as $key => $answer)
+                                <td>{{$answer->language(app()->getLocale())? $answer->language(app()->getLocale())->title: $answer->language()->title}}</td>
+                            @endforeach
+                        </tr>
+                    @endforeach
                 </table>
                 <!-- @foreach($product->features as $feature)
                     <p class="p"><b>

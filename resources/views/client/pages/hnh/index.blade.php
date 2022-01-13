@@ -9,8 +9,8 @@
     <section class="every_showcase hnh">
         <!-- <img src="/client/img/showcases/12.webp" alt=""> -->
         <div class="hnh_bg">
-            <div class="overlay"> 
-                <!-- <div class="wrapper content">
+            <div class="overlay">
+            <!-- <div class="wrapper content">
                     <div class="path">@lang('client.home') - H & H</div>
                     <div class="title">H & H</div>
                 </div> -->
@@ -18,10 +18,13 @@
         </div>
         <a href="#hnh_section">
             <div class="scroll_down">
-                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" version="1.1" width="40" height="40" x="0" y="0" viewBox="0 0 330 330" style="enable-background:new 0 0 512 512" xml:space="preserve" class="">
-                <path xmlns="http://www.w3.org/2000/svg" id="XMLID_102_" d="M325.607,79.393c-5.857-5.857-15.355-5.858-21.213,0.001l-139.39,139.393L25.607,79.393  c-5.857-5.857-15.355-5.858-21.213,0.001c-5.858,5.858-5.858,15.355,0,21.213l150.004,150c2.813,2.813,6.628,4.393,10.606,4.393  s7.794-1.581,10.606-4.394l149.996-150C331.465,94.749,331.465,85.251,325.607,79.393z" data-original="#000000" style="" class=""/>
-                <g xmlns="http://www.w3.org/2000/svg">
-                </g>
+                <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="40" height="40" x="0" y="0"
+                     viewBox="0 0 330 330" style="enable-background:new 0 0 512 512" xml:space="preserve" class="">
+                <path xmlns="http://www.w3.org/2000/svg" id="XMLID_102_"
+                      d="M325.607,79.393c-5.857-5.857-15.355-5.858-21.213,0.001l-139.39,139.393L25.607,79.393  c-5.857-5.857-15.355-5.858-21.213,0.001c-5.858,5.858-5.858,15.355,0,21.213l150.004,150c2.813,2.813,6.628,4.393,10.606,4.393  s7.794-1.581,10.606-4.394l149.996-150C331.465,94.749,331.465,85.251,325.607,79.393z"
+                      data-original="#000000" style="" class=""/>
+                    <g xmlns="http://www.w3.org/2000/svg">
+                    </g>
                 </svg>
             </div>
         </a>
@@ -86,7 +89,7 @@
                         <div class="title">
                             {{$hnh->language(app()->getLocale())? $hnh->language(app()->getLocale())->title: $hnh->language()->title}}
                         </div>
-                        <p>{{$hnh->language(app()->getLocale())? $hnh->language(app()->getLocale())->description: $hnh->language()->description}}</p>
+                        <p>{!! $hnh->language(app()->getLocale())? $hnh->language(app()->getLocale())->description: $hnh->language()->description !!}</p>
                         <p>${{number_format($hnh->price/100)}}</p>
                         <button class="view">@lang('client.more_details')</button>
                     </div>
@@ -110,26 +113,24 @@
                                 <div
                                     class="title">{{$hnh->language(app()->getLocale())? $hnh->language(app()->getLocale())->title: $hnh->language()->title}}</div>
                                 <p>${{number_format($hnh->price/100)}}</p>
-                                <!-- @foreach($hnh->features as $feature)
-                                    <p> {{$feature->feature->language(app()->getLocale())? $feature->feature->language(app()->getLocale())->title: $feature->feature->language()->title}}</p>
-                                    <select name="hnh" id="">
-                                        @foreach($feature->answers()->get() as $key => $answer)
-                                            <option
-                                                value="">{{$answer->language(app()->getLocale())? $answer->language(app()->getLocale())->title: $answer->language()->title}}</option>
-                                        @endforeach
-                                    </select>
-                                @endforeach -->
+                                {{--                                @foreach($hnh->features as $feature)--}}
+                                {{--                                    <p> {{$feature->feature->language(app()->getLocale())? $feature->feature->language(app()->getLocale())->title: $feature->feature->language()->title}}</p>--}}
+                                {{--                                    <select name="hnh" id="">--}}
+                                {{--                                        @foreach($feature->answers()->get() as $key => $answer)--}}
+                                {{--                                            <option--}}
+                                {{--                                                value="">{{$answer->language(app()->getLocale())? $answer->language(app()->getLocale())->title: $answer->language()->title}}</option>--}}
+                                {{--                                        @endforeach--}}
+                                {{--                                    </select>--}}
+                                {{--                                @endforeach--}}
                                 <table class="size_price_table">
-                                    <tr>
-                                        <td>ზომა </td>
-                                        <td><span>0.9</span> ლ </td>
-                                        <td><span>2.7</span> ლ </td>
-                                    </tr>
-                                    <tr>
-                                        <td>ფასი</td>
-                                        <td><span>21</span> ლარი</td>
-                                        <td><span>23</span> ლარი</td>
-                                    </tr>
+                                    @foreach($hnh->features as $feature)
+                                        <tr>
+                                            <td>{{$feature->feature->language(app()->getLocale())? $feature->feature->language(app()->getLocale())->title: $feature->feature->language()->title}}</td>
+                                            @foreach($feature->answers()->get() as $key => $answer)
+                                                <td>{{$answer->language(app()->getLocale())? $answer->language(app()->getLocale())->title: $answer->language()->title}}</td>
+                                            @endforeach
+                                        </tr>
+                                    @endforeach
                                 </table>
                                 <p>{!!$hnh->language(app()->getLocale())? $hnh->language(app()->getLocale())->content: $hnh->language()->content!!}</p>
                             </div>
