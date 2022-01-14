@@ -12,6 +12,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\ProductRequest;
 use App\Models\Product;
+use App\Models\ProductFeature;
 use App\Repositories\CategoryRepositoryInterface;
 use App\Repositories\FeatureRepositoryInterface;
 use App\Repositories\ProductRepositoryInterface;
@@ -151,7 +152,13 @@ class ProductController extends Controller
                 'category.features',
                 'category.features.answers'
             ])->first();
-
+        $answers = ProductFeature::where("product_id", $product->id)->select("answers")->get();
+        $answersList = [];
+        foreach ($answers as $answer){
+            $answersList = array_merge($answersList, $answer->answers);
+        }
+//        dd($answersList);
+//        dd($answersList[1]->answers);
         $url = locale_route('product.update', $product->id, false);
 
         $method = 'PUT';
@@ -162,6 +169,7 @@ class ProductController extends Controller
             'method' => $method,
             'languages' => $this->activeLanguages(),
             'categories' => $this->categoryRepository->all(['*'],['features.languages','features.answers.languages']),
+            "answersList" => $answersList
         ]);
     }
 

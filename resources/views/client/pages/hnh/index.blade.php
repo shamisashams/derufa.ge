@@ -124,9 +124,22 @@
                                 {{--                                @endforeach--}}
                                 <table class="size_price_table">
                                     @foreach($hnh->features as $feature)
+                                        @php
+                                            $arr = $feature->answers()->get();
+
+                                            foreach($answersList as $ans){
+                                                foreach ($arr as $key => $answer){
+                                                    if ($answer->id==$ans){
+                                                        $arr[] = $answer;
+
+                                                        unset($arr[$key]);
+                                                    }
+                                                }
+                                            }
+                                        @endphp
                                         <tr>
                                             <td>{{$feature->feature->language(app()->getLocale())? $feature->feature->language(app()->getLocale())->title: $feature->feature->language()->title}}</td>
-                                            @foreach($feature->answers()->get() as $key => $answer)
+                                            @foreach($arr as $key => $answer)
                                                 <td>{{$answer->language(app()->getLocale())? $answer->language(app()->getLocale())->title: $answer->language()->title}}</td>
                                             @endforeach
                                         </tr>

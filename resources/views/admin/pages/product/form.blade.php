@@ -192,9 +192,13 @@
                                 @else
                                     <div class="features" id="features-container">
                                         @if(count($product->category->features))
+                                            {{--                                            @dd($product->category->features)--}}
                                             @foreach($product->category->features as $feature)
                                                 @if(!count($feature->answers))
                                                     @continue;
+                                                @endif
+                                                @if($loop->iteration>1)
+                                                    {{--                                                    @dd($feature->answers()->get())--}}
                                                 @endif
                                                 <div class="col">
                                                     <label for="feature[{{$feature->id}}][]">
@@ -202,18 +206,39 @@
                                                     </label>
                                                 </div>
                                                 <div class="input-field col s12">
+                                                    {{--                                                    @if($loop->iteration ==2)--}}
+                                                    {{--                                                        @dd($feature->answers)--}}
+                                                    {{--                                                    @endif--}}
+                                                    {{--                                                    @dd($answersList)--}}
+{{--                                                    @dd($answersList)--}}
+
                                                     <select class="select2-customize-result browser-default"
                                                             multiple="multiple"
                                                             id="select2-customize-result-{{$feature->id}}"
                                                             name="feature[{{$feature->id}}][]">
                                                         <optgroup>
-                                                            @foreach($feature->answers as $answer)
-                                                                <option
-                                                                        value="{{$answer->id}}"
-                                                                        {{$product->hasFeatureAnswers($answer->id) ? 'selected' : ''}}
-                                                                >
-                                                                    {{$answer->language(app()->getLocale()) ? substr($answer->language(app()->getLocale())->title,0,25) : substr($answer->language()->title,0,25)}}
-                                                                </option>
+                                                            @foreach($answersList as $ans)
+{{--                                                                @dd($ans)--}}
+
+                                                                @foreach($feature->answers as $answer)
+                                                                    @if(in_array($answer->id, $answersList))
+                                                                        @if($answer->id == $ans)
+                                                                            <option
+                                                                                value="{{$answer->id}}"
+                                                                                {{$product->hasFeatureAnswers($answer->id) ? 'selected' : ''}}
+                                                                            >
+                                                                                {{$answer->language(app()->getLocale()) ? substr($answer->language(app()->getLocale())->title,0,25) : substr($answer->language()->title,0,25)}}
+                                                                            </option>
+                                                                        @endif
+                                                                    @else
+                                                                        <option
+                                                                            value="{{$answer->id}}"
+                                                                        >
+                                                                            {{$answer->language(app()->getLocale()) ? substr($answer->language(app()->getLocale())->title,0,25) : substr($answer->language()->title,0,25)}}
+                                                                        </option>
+                                                                    @endif
+                                                                @endforeach
+
                                                             @endforeach
                                                         </optgroup>
                                                     </select>
@@ -258,5 +283,19 @@
 @section('page-script')
     <script src="{{asset('js/scripts/form-select2.js')}}"></script>
     <script src="{{asset('../ckeditor/ckeditor.js')}}"></script>
+    <script>
+        // $("select").select2({
+        //     tags: true
+        // });
+
+        $("select").on("select2:select", function (evt) {
+            var element = evt.params.data.element;
+            var $element = $(element);
+
+            $element.detach();
+            $(this).append($element);
+            $(this).trigger("change");
+        });
+    </script>
 
 @endsection

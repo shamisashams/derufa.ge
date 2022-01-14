@@ -114,17 +114,17 @@
                         </div>
                         <div class="col s12 m6 8">
                             <div class="row">
-{{--                                <div class="input-field col s12">--}}
-{{--                                    {!! Form::text('slug',$hnh->slug,['class' => 'validate '. $errors->has('slug') ? '' : 'valid']) !!}--}}
-{{--                                    {!! Form::label('slug',__('admin.slug')) !!}--}}
-{{--                                    @error('slug')--}}
-{{--                                    <small class="errorTxt4">--}}
-{{--                                        <div class="error">--}}
-{{--                                            {{$message}}--}}
-{{--                                        </div>--}}
-{{--                                    </small>--}}
-{{--                                    @enderror--}}
-{{--                                </div>--}}
+                                {{--                                <div class="input-field col s12">--}}
+                                {{--                                    {!! Form::text('slug',$hnh->slug,['class' => 'validate '. $errors->has('slug') ? '' : 'valid']) !!}--}}
+                                {{--                                    {!! Form::label('slug',__('admin.slug')) !!}--}}
+                                {{--                                    @error('slug')--}}
+                                {{--                                    <small class="errorTxt4">--}}
+                                {{--                                        <div class="error">--}}
+                                {{--                                            {{$message}}--}}
+                                {{--                                        </div>--}}
+                                {{--                                    </small>--}}
+                                {{--                                    @enderror--}}
+                                {{--                                </div>--}}
                                 <div class="input-field col s12">
                                     {!! Form::number('price',$hnh->price,['class' => 'validate '. $errors->has('price') ? '' : 'valid']) !!}
                                     {!! Form::label('price',__('admin.price')) !!}
@@ -204,6 +204,7 @@
                                 @else
                                     <div class="features" id="features-container">
                                         @if(count($hnh->category->features))
+
                                             @foreach($hnh->category->features as $feature)
                                                 @if(!count($feature->answers))
                                                     @continue;
@@ -219,13 +220,28 @@
                                                             id="select2-customize-result-{{$feature->id}}"
                                                             name="feature[{{$feature->id}}][]">
                                                         <optgroup>
-                                                            @foreach($feature->answers as $answer)
-                                                                <option
-                                                                    value="{{$answer->id}}"
-                                                                    {{$hnh->hasFeatureAnswers($answer->id) ? 'selected' : ''}}
-                                                                >
-                                                                    {{$answer->language(app()->getLocale()) ? substr($answer->language(app()->getLocale())->title,0,25) : substr($answer->language()->title,0,25)}}
-                                                                </option>
+                                                            @foreach($answersList as $ans)
+
+                                                                @foreach($feature->answers as $answer)
+                                                                    @if(in_array($answer->id, $answersList))
+                                                                        @if($answer->id == $ans)
+
+                                                                            <option
+                                                                                value="{{$answer->id}}"
+                                                                                {{$hnh->hasFeatureAnswers($answer->id) ? 'selected' : ''}}
+                                                                            >
+                                                                                {{$answer->language(app()->getLocale()) ? substr($answer->language(app()->getLocale())->title,0,25) : substr($answer->language()->title,0,25)}}
+                                                                            </option>
+                                                                        @endif
+                                                                    @else
+                                                                        <option
+                                                                            value="{{$answer->id}}"
+                                                                            {{--                                                                            {{$hnh->hasFeatureAnswers($answer->id) ? 'selected' : ''}}--}}
+                                                                        >
+                                                                            {{$answer->language(app()->getLocale()) ? substr($answer->language(app()->getLocale())->title,0,25) : substr($answer->language()->title,0,25)}}
+                                                                        </option>
+                                                                    @endif
+                                                                @endforeach
                                                             @endforeach
                                                         </optgroup>
                                                     </select>
@@ -271,4 +287,18 @@
     <script src="{{asset('../ckeditor/ckeditor.js')}}"></script>
 
     <script src="{{asset('js/scripts/form-select2.js')}}"></script>
+    <script>
+        // $("select").select2({
+        //     tags: true
+        // });
+
+        $("select").on("select2:select", function (evt) {
+            var element = evt.params.data.element;
+            var $element = $(element);
+
+            $element.detach();
+            $(this).append($element);
+            $(this).trigger("change");
+        });
+    </script>
 @endsection

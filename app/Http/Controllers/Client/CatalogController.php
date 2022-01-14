@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Client;
 use App\Http\Controllers\Controller;
 use App\Models\Category;
 use App\Models\Product;
+use App\Models\ProductFeature;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
 
@@ -33,6 +34,7 @@ class CatalogController extends Controller
             }
         }
 
+
         return view('client.pages.catalog.index', [
             'products' => $products->paginate(12),
             'category' => $category
@@ -41,9 +43,15 @@ class CatalogController extends Controller
 
     public function show(Request $request, string $locale, string $slug) {
         $product = Product::with('features')->where(['status' => true,'slug' => $slug])->firstOrFail();
+        $answers = ProductFeature::where("product_id", $product->id)->select("answers")->get();
+        $answersList = [];
+        foreach ($answers as $answer){
+            $answersList = array_merge($answersList, $answer->answers);
+        }
 
         return view('client.pages.catalog.show', [
             'product' => $product,
+            "answersList" => $answersList
         ]);
     }
 

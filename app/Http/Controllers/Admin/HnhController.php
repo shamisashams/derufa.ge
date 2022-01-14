@@ -13,6 +13,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\HnhRequest;
 use App\Http\Requests\Admin\ProductRequest;
 use App\Models\Hnh;
+use App\Models\HnhFeature;
 use App\Models\Product;
 use App\Repositories\CategoryRepositoryInterface;
 use App\Repositories\FeatureRepositoryInterface;
@@ -162,12 +163,20 @@ class HnhController extends Controller
 
         $method = 'PUT';
 
+        $answers = HnhFeature::where("hnh_id", $hnh->id)->select("answers")->get();
+        $answersList = [];
+        foreach ($answers as $answer){
+            $answersList = array_merge($answersList, $answer->answers);
+        }
+//        dd($answersList);
+
         return view('admin.pages.hnh.form', [
             'hnh' => $hnh,
             'url' => $url,
             'method' => $method,
             'languages' => $this->activeLanguages(),
             'categories' => $this->categoryRepository->all(['*'], ['features.languages', 'features.answers.languages']),
+            "answersList" => $answersList
         ]);
     }
 
