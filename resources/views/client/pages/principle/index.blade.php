@@ -28,6 +28,10 @@
             <p class="para">@lang('client.principle_section_3')
             </p>
             <p class="para">@lang('client.principle_section_4')</p>
+            <p class="para">@lang('client.principle_section_5')</p>
+            <p class="para">@lang('client.principle_section_6')</p>
+            <p class="para">@lang('client.principle_section_7')</p>
+            <p class="para">@lang('client.principle_section_8')</p>
         </div>
     </section>
 @endsection
